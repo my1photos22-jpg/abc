@@ -1,15 +1,16 @@
-const { cmd } = require('../command')
+const { cmd, commands } = require('../command')
 
 cmd({
     pattern: "hi",
-    desc: "අලුත් Command එක පරීක්ෂා කිරීමට",
+    desc: "greeting",
     category: "main",
     filename: __filename
 },
-async(conn, mek, m,{reply}) => {
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, reply}) => {
 try{
-    return await reply("ඔබේ අලුත් Hi Command එක සාර්ථකව වැඩ කරනවා! ✅")
+    return await reply("හෙලෝ, අලුත් Command එක වැඩ කරනවා!")
 } catch (e) {
+    console.log(e)
     reply(`${e}`)
 }
 })
